@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.projectmate.dao.UserDao">
+    <!--添加用户-->
+    <insert id="addUser" parameterType="com.example.projectmate.domain.User" >
+        insert into user (username , wechat_openid, register_time, gender, avatarUrl)
+        values (#{username},#{wechat_openid},#{register_time} ,#{gender} ,#{avatarUrl});
+    </insert>
+
+    <select id="findByOpenId" parameterType="com.example.projectmate.domain.User" resultType="com.example.projectmate.domain.User">
+        select * from user where wechat_openid=#{wechat_openid} ORDER BY user_id desc
+    </select>
+    <update id="updateUser" parameterType="com.example.projectmate.domain.User">
+        UPDATE user set username = #{username},student_number = #{student_number},gender = #{gender},
+        college = #{college},major = #{major},introduction = #{introduction} WHERE wechat_openid = #{wechat_openid}
+    </update>
+</mapper>
