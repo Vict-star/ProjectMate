@@ -153,7 +153,6 @@ public class UserController {
         user.setMajor(major);
         user.setIntroduction(introduction);
         userService.updateUser(user);
-        System.out.println("已成功更新"+user);
         return  "已成功更新";
     }
 }
