@@ -1,5 +1,7 @@
 package com.example.projectmate.domain;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class User {
@@ -14,6 +16,7 @@ public class User {
     private String wechat_openid;
     private String introduction;
     private String avatarUrl;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date register_time;
 
     public String getAvatarUrl() {

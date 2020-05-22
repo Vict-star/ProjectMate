@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.projectmate.dao.MatchDao">
+    <select id="ListAllMatches" resultType="com.example.projectmate.domain.Match">
+        select * from matchs ORDER BY match_id
+    </select>
+    <select id="findMatchById" parameterType="java.lang.Integer" resultType="com.example.projectmate.domain.Match">
+        select * from matchs where match_id=#{match_id}
+    </select>
+</mapper>

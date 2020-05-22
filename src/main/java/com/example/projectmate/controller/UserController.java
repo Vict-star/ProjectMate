@@ -30,7 +30,7 @@ import java.util.List;
 public class UserController {
     @Autowired
     private UserService userService;
-
+    //微信登录，如果未存在账号则新增
     @RequestMapping(value = "/login",produces="text/html;charset=UTF-8")
     public @ResponseBody String WechatLogin(@RequestBody String userInfo, HttpServletRequest request, HttpSession session) throws IOException {
         User user=new User();
@@ -74,6 +74,7 @@ public class UserController {
         System.out.println("sessionId= "+sessionId);
         return sessionId;
     }
+    //查看我的信息
     @RequestMapping(value = "/MyInformation")
     public @ResponseBody User MyInformation(@RequestBody String wechat_code) throws IOException {
         JSONObject jsonObject = JSONObject.fromObject(wechat_code);
@@ -121,6 +122,7 @@ public class UserController {
         System.out.println("3"+user);
         return  user;
     }
+    //更新我的信息
     @RequestMapping(value = "/UpdateUser")
     public @ResponseBody String UpdateUser(@RequestBody String UpdateUser) throws IOException {
         JSONObject jsonObject = JSONObject.fromObject(UpdateUser);
